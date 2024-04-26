@@ -1,4 +1,7 @@
-import React from 'react';
+// Organize os produtos como mostrado no vídeo
+// Mostre apenas produtos que forem mais caros que R$ 1500
+
+// RESPOSTA:
 
 const produtos = [
   {
