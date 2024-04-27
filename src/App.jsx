@@ -1,14 +1,13 @@
 import React from 'react'
-import { Header } from './Header'
-import { Footer } from './Footer'
-import { Form } from './Form/Form'
+
 
 export const App = () => {
   return (
     <>
-      < Header />
-      <Form />
-      <Footer />
+      <ul>
+        <li><a href={'/home'}>Home</a></li>
+        <li><a href={'/produtos'}>Produtos</a></li>
+      </ul>
     </>
   )
 }
