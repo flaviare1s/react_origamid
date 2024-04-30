@@ -5,4 +5,3 @@ export const Titulo = ({titulo}) => {
     <h1 style={{color: '#4C8B64'}}>{titulo}</h1>
   )
 }
-

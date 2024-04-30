@@ -14,4 +14,3 @@ export const Produto = ({produto, index}) => {
     </div>
   )
 }
-
