@@ -1,30 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { useFetch } from './hooks/useFetch';
-
+import React, { useState } from 'react';
 
 export const App = () => {
-  const {request, data, loading, error} = useFetch()
+  const [form, setForm] = useState({
+    nome: '',
+    email: '',
+  });
 
-  useEffect(() => {
-    async function fetchData() {
-      const {response, json} = await request('https://ranekapi.origamid.dev/json/api/produto/')
-      console.log(response, json)
-    } 
-    fetchData()
-  },[request])
-  console.log(data)
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(event);
+  }
 
-  if(error) return <p>{error}</p>
-  if(loading) return <p>Carregando</p>
-  if(data)
+  function handleChange({target}) {
+    const {id, value} = target
+    setForm({ ...form, [id]: value })
+  }
+
   return (
-    <div>
-      {data.map((produto) => (
-        <div key={produto.id}>
-          <h1>{produto.nome}</h1>
-        </div>
-      ))}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="nome">Nome</label>
+      <input
+        id="nome"
+        name="nome"
+        type="text"
+        value={form.nome}
+        onChange={handleChange}
+      />
+      {form.nome}
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        value={form.email}
+        onChange={handleChange}
+      />
+      {form.email}
+      <button>Enviar</button>
+    </form>
   );
-  else return null
 };
