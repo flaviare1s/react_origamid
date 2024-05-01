@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-export const Input = ({ id, name, label }) => {
+export const Input = ({ id, label, setValue, ...props }) => {
   return (
-    <div>
+    <>
       <label htmlFor="">{label}</label>
-      <input type="text" name={name} id={id} />
-    </div>
-  )
-}
-
+      <input
+        type="text"
+        name={id}
+        id={id}
+        onChange={({ target }) => setValue(target.value)}
+        {...props}
+      />
+    </>
+  );
+};
