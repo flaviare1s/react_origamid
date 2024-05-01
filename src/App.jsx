@@ -13,6 +13,8 @@ export const App = () => {
     estado: '',
   });
 
+  const [mensagem, setMensagem] = useState('')
+
   const [response, setResponse] = useState(null)
 
   function handleSubmit(event) {
@@ -84,7 +86,7 @@ export const App = () => {
       <input
         id="numero"
         name="numero"
-        type="number"
+        type="text"
         value={form.numero}
         onChange={handleChange}
       />
@@ -115,6 +117,16 @@ export const App = () => {
         value={form.estado}
         onChange={handleChange}
       />
+
+      <textarea 
+        name="mensagem"
+        id="mensagem"
+        cols="30"
+        rows="5"
+        value={mensagem}
+        onChange={({target}) => setMensagem(target.value)}>
+      </textarea>
+
       {response && response.ok && <p>Formulário Enviado</p> }
       <button>Enviar</button>
     </form>
