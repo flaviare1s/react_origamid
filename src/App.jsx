@@ -17,6 +17,8 @@ export const App = () => {
 
   const [select, setSelect] = useState('')
 
+  const [produto, setProduto] = useState('')
+
   const [response, setResponse] = useState(null)
 
   function handleSubmit(event) {
@@ -35,6 +37,10 @@ export const App = () => {
   function handleChange({ target }) {
     const { id, value } = target;
     setForm({ ...form, [id]: value });
+  }
+
+  function handleRadio({target}) {
+    setProduto(target.value)
   }
 
   return (
@@ -135,6 +141,23 @@ export const App = () => {
         <option value="smartphone">Smartphone</option>
         <option value="tablet">Tablet</option>
       </select>
+
+      <label>
+        <input
+          type="radio"
+          name='produto'
+          value="notebook"
+          //checked={produto === 'notebook'}
+          onChange={handleRadio}
+        />Notebook
+         <input
+          type="radio"
+          name='produto'
+          value="smartphone"
+          //checked={produto === 'smartphone'}
+          onChange={handleRadio}
+        />Smartphone
+      </label>
 
       {response && response.ok && <p>Formulário Enviado</p> }
       <br />
