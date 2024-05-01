@@ -15,6 +15,8 @@ export const App = () => {
 
   const [mensagem, setMensagem] = useState('')
 
+  const [select, setSelect] = useState('')
+
   const [response, setResponse] = useState(null)
 
   function handleSubmit(event) {
@@ -127,7 +129,16 @@ export const App = () => {
         onChange={({target}) => setMensagem(target.value)}>
       </textarea>
 
+      <select name="select" id="select" value={select} onChange={({target}) => setSelect(target.value)}>
+        <option value="" disabled>Selecione</option>
+        <option value="notebook">Notebook</option>
+        <option value="smartphone">Smartphone</option>
+        <option value="tablet">Tablet</option>
+      </select>
+
       {response && response.ok && <p>Formulário Enviado</p> }
+      <br />
+      <br />
       <button>Enviar</button>
     </form>
   );
