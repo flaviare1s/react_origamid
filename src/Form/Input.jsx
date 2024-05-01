@@ -1,11 +1,10 @@
 import React from 'react'
 
-export const Input = ({ id, label, ...props }) => {
-  console.log(props)
+export const Input = ({ id, name, label }) => {
   return (
-    <div style={{margin: '1rem 0'}}>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type="text" {...props} />
+    <div>
+      <label htmlFor="">{label}</label>
+      <input type="text" name={name} id={id} />
     </div>
   )
 }
